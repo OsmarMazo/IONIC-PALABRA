@@ -1,0 +1,12 @@
+<ion-input
+  type="text"
+  class="custom"
+  [maxlength]="1"
+  [(ngModel)]="opcion"
+  (keyup)="onComprobar()"
+  [disabled]="disabled"
+
+  [ngClass]="{'verde': css === 'acierto', 'naranja': css === 'casi', 'gris': css === 'fallo' }"
+  [(ngModel)]="valor"
+  (keyup)="onKeyUp($event)"
+></ion-input>

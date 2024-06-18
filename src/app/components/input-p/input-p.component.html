@@ -1,0 +1,19 @@
+<ion-input
+aria-label="Custom input"
+placeholder="Ingrese la palabra"
+labelPlacement="floating"
+class="ion-text-uppercase, custom"
+[counter]="true"
+[maxlength]="5"
+  type="text"
+  [(ngModel)]="ingresar" [disabled]="juegoGanado"
+  
+></ion-input>
+<ion-button
+ [disabled]="ingresar.length<5"
+ [disabled]="juegoGanado"
+(click)="enviarPalabra()"
+>
+  Comprobar
+  <ion-icon slot="end" name="send-outline"></ion-icon>
+</ion-button>

@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>jugar</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="small">Nivel: {{nivel.name}}</ion-title>
+    </ion-toolbar>
+
+  </ion-header>
+
+  <ion-content class="ion-padding">
+      <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-text-center">
+      <div>
+      <div>Tiempo: {{ tiempoActual | date:'mm:ss:SSS' }}</div>
+      </div>
+      </ion-col>
+      </ion-row>
+      </ion-grid>
+
+    <app-fila *ngFor="let item of numfilas" [palabra]="palabra" [letras]="letras"></app-fila>
+
+    <ion-content>
+
+        <button (click)="enviar()"
+        > COMPROBAR <ion-icon slot="end" name="send-outline"></ion-icon>
+      </button>
+      <div *ngFor="let fila of numfilas; let i = index">
+        <app-fila
+          [filaActiva]="fila.activa"
+          (filaCompleta)="onFilaCompleta($event)"
+          (siguienteFila)="cambiarFilaActiva(i + 1)">
+        </app-fila>
+      </div>
+
+    </ion-content>
+    
+   
+
+  </ion-content>
+  
+</ion-content>

@@ -1,0 +1,13 @@
+<app-celda 
+    *ngFor="let item of letras" 
+    [letra]="item" 
+    [palabra]="palabra"
+    (valorEmitido)="capturarValor($event, 0)"
+    (keyup)="onComprobar()"
+    [ngClass]="{
+        'verde': resultado && resultado[0] === 'verde',
+        'amarillo': resultado && resultado[0] === 'amarillo',
+        'rojo': resultado && resultado[0] === 'rojo'}"
+></app-celda>
+
+
